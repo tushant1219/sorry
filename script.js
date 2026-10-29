@@ -402,7 +402,8 @@ if ("IntersectionObserver" in window) {
 }
 
 
-/* ---------- BACKGROUND MUSIC + SOUND BUTTON + PROMPT ---------- */
+
+/* ---------- BACKGROUND MUSIC + PROMPT ---------- */
 
 (() => {
   const music = document.getElementById("backgroundMusic");
@@ -410,97 +411,76 @@ if ("IntersectionObserver" in window) {
   const musicPrompt = document.getElementById("musicPrompt");
 
   if (!music) {
-    console.error(
-      "Background music element not found. Check #backgroundMusic in index.html."
-    );
+    console.error("Audio element #backgroundMusic not found.");
     return;
   }
 
   music.volume = 0.35;
 
-  function updateSoundButton(isPlaying) {
+  function updateButton(playing) {
     if (!soundBtn) return;
 
-    soundBtn.innerHTML = isPlaying
+    soundBtn.innerHTML = playing
       ? '♫ <span>Sound on</span>'
       : '♫ <span>Sound off</span>';
 
-    soundBtn.setAttribute("aria-pressed", String(isPlaying));
+    soundBtn.setAttribute("aria-pressed", String(playing));
   }
 
-  function hideMusicPrompt() {
+  function showPrompt(show) {
     if (musicPrompt) {
-      musicPrompt.classList.add("is-hidden");
+      musicPrompt.classList.toggle("is-hidden", !show);
     }
   }
 
-  function showMusicPrompt() {
-    if (musicPrompt) {
-      musicPrompt.classList.remove("is-hidden");
-    }
-  }
-
-  async function playMusic() {
+  async function startMusic() {
     try {
+      // Start playback directly from the user's click when possible.
       await music.play();
-      updateSoundButton(true);
-      hideMusicPrompt();
+      updateButton(true);
+      showPrompt(false);
+      console.log("Music playing successfully.");
     } catch (error) {
-      updateSoundButton(false);
-      showMusicPrompt();
-
-      console.info(
-        "Autoplay was blocked or music could not start. Tap the music prompt or Sound button."
-      );
+      updateButton(false);
+      showPrompt(true);
+      console.error("Music playback failed:", error.name, error.message);
     }
   }
 
-  // Attempt autoplay when the page loads.
-  // Some browsers require a visitor interaction before sound can play.
-  playMusic();
+  // Try autoplay on page load.
+  startMusic();
 
   // Sound ON/OFF button.
   if (soundBtn) {
-    soundBtn.addEventListener("click", async () => {
+    soundBtn.addEventListener("click", () => {
       if (music.paused) {
-        await playMusic();
+        startMusic();
       } else {
         music.pause();
-        updateSoundButton(false);
-        hideMusicPrompt();
+        updateButton(false);
+        showPrompt(true);
       }
     });
   }
 
-  // Prompt click or keyboard activation starts music.
+  // Tap the prompt to retry playback.
   if (musicPrompt) {
-    musicPrompt.addEventListener("click", playMusic);
-
-    musicPrompt.addEventListener("keydown", event => {
-      if (event.key === "Enter" || event.key === " ") {
-        event.preventDefault();
-        playMusic();
-      }
-    });
+    musicPrompt.addEventListener("click", startMusic);
   }
 
-  // Keep UI synchronized with actual playback.
   music.addEventListener("playing", () => {
-    updateSoundButton(true);
-    hideMusicPrompt();
+    updateButton(true);
+    showPrompt(false);
   });
 
   music.addEventListener("pause", () => {
-    updateSoundButton(false);
+    updateButton(false);
   });
 
   music.addEventListener("error", () => {
-    updateSoundButton(false);
-    showMusicPrompt();
-
-    console.error(
-      "Could not load the music file. Check assets/audio/song.mp3 and the filename."
-    );
+    console.error("Audio file failed to load:", music.currentSrc, music.error);
+    updateButton(false);
+    showPrompt(true);
   });
 })();
 
