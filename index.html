@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fff0f7">
+  <meta name="description" content="A little corner of the heart, made with care.">
+  <title>Just Us 💗 — For Madam Ji</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <div class="petal-layer" id="petalLayer" aria-hidden="true"></div>
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="Just Us home"><span class="brand-icon">♡</span><span><strong>just us</strong><small>a little corner of my heart</small></span></a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    <nav class="nav-links" id="navLinks">
+      <a href="#letter">My Letter</a><a href="#memories">Memories</a><a href="#story">Our Story</a><a href="#promises">Promises</a>
+    </nav>
+    <button class="sound-button" id="soundBtn" type="button" aria-pressed="false">♫ <span>Sound off</span></button>
+  </header>
+
+  <main>
+    <section class="hero page-width" id="home">
+      <div class="hero-copy reveal">
+        <div class="eyebrow"><span class="eyebrow-dot"></span> MADE WITH A LITTLE COURAGE & A LOT OF HEART</div>
+        <h1>Meri Pyari<br><span>Madam Ji</span> <span class="title-heart">♥</span></h1>
+        <p class="hero-lead">Some words are hard to say out loud, so I made this little space to say them with honesty.</p>
+        <p class="hero-sub">I know things have been difficult. I want to understand your feelings better and express mine with kindness and respect.</p>
+        <div class="hero-actions"><a class="button button-primary" href="#letter">Read my letter <span>↗</span></a><a class="button button-secondary" href="#memories">Visit our memories <span>♡</span></a></div>
+        <div class="quiet-note"><span>♡</span> No pressure. Just an honest message.</div>
+      </div>
+
+      
+      <div class="hero-art reveal" aria-label="A heart surrounded by floating memories">
+
+        <div class="halo halo-one"></div>
+        <div class="halo halo-two"></div>
+        <div class="spark spark-one">✦</div>
+        <div class="spark spark-two">✧</div>
+        <div class="spark spark-three">·</div>
+
+        <!-- Floating photo 1 -->
+        <div class="floating-polaroid polaroid-one">
+          <div class="polaroid-photo">
+            <img src="assets/photos/photo2.jpeg"
+                alt="Our favourite memory"
+                onerror="this.style.display='none';this.parentElement.textContent='♡';">
+          </div>
+          <span>Our Favourite Smile</span>
+        </div>
+
+        <!-- Floating photo 2 -->
+        <div class="floating-polaroid polaroid-two">
+          <div class="polaroid-photo">
+            <img src="assets/photos/photo1.jpeg"
+                alt="A beautiful memory"
+                onerror="this.style.display='none';this.parentElement.textContent='🌷';">
+          </div>
+          <span>A Beautiful Day</span>
+        </div>
+
+        <!-- Floating photo 3 -->
+        <div class="floating-polaroid polaroid-three">
+          <div class="polaroid-photo">
+            <img src="assets/photos/photo7.jpeg"
+                alt="A happy memory"
+                onerror="this.style.display='none';this.parentElement.textContent='♡';">
+          </div>
+          <span>Little Happiness</span>
+        </div>
+
+        <!-- Sorry note -->
+        <div class="sorry-note">
+          I’m Really
+          <strong>Sorry ♡</strong>
+        </div>
+
+        <!-- Main heart -->
+        <svg class="hero-heart"
+            viewBox="0 0 200 185"
+            role="img"
+            aria-label="Pink heart">
+
+          <defs>
+            <linearGradient id="heartGradient"
+                            x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#ff8bbb"/>
+              <stop offset="52%" stop-color="#f64c98"/>
+              <stop offset="100%" stop-color="#d93682"/>
+            </linearGradient>
+
+            <filter id="heartShadow"
+                    x="-40%" y="-40%" width="180%" height="190%">
+              <feDropShadow dx="0" dy="15" stdDeviation="9"
+                            flood-color="#bd397d"
+                            flood-opacity=".25"/>
+            </filter>
+          </defs>
+
+          <path
+            filter="url(#heartShadow)"
+            fill="url(#heartGradient)"
+            stroke="#ffffff"
+            stroke-opacity=".65"
+            stroke-width="2"
+            d="M100 169 C85 154 16 108 16 57
+              C16 28 37 12 61 12
+              C79 12 92 22 100 39
+              C108 22 121 12 139 12
+              C163 12 184 28 184 57
+              C184 108 115 154 100 169Z"/>
+
+          <path
+            fill="none"
+            stroke="#fff"
+            stroke-opacity=".6"
+            stroke-width="5"
+            stroke-linecap="round"
+            d="M39 49 C43 34 54 29 65 30"/>
+        </svg>
+
+        <div class="floating-label label-top">
+          you matter <span>✿</span>
+        </div>
+
+        <div class="floating-label label-bottom">
+          <span class="label-heart">♥</span>
+          <span>
+            <strong>A gentle reminder</strong>
+            <small>Your feelings deserve care, too.</small>
+          </span>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section page-width" id="letter">
+      <div class="section-heading reveal"><span class="section-kicker">WORDS FROM MY HEART</span><h2>A letter for you <span>♡</span></h2><p>Open the envelope whenever you feel like reading.</p></div>
+      <div class="letter-layout">
+        <button class="envelope" id="envelope" type="button" aria-expanded="false" aria-controls="letterContent" aria-label="Open the letter">
+          <span class="envelope-paper">♡</span><span class="envelope-back"></span><span class="envelope-flap"></span><span class="envelope-front"></span><span class="envelope-seal">♥</span>
+        </button>
+        <p class="envelope-hint" id="envelopeHint">Tap the envelope to open your letter</p>
+        <article class="letter-paper" id="letterContent" hidden>
+           <div class="letter-topline">
+            <span>FOR MY MADAM JI</span>
+            <span>♡</span>
+          </div>
+
+          <h3>Meri Pyari Madam Ji 🎀❤️</h3>
+
+          <p>
+            Dear Madam Ji, meri pyari Malkin ❤️👑🫶🏻
+          </p>
+
+          <p>
+            Sabse pehle, main tumse dil se sorry kehna chahta hoon. Mujhe pata hai ki mujhse galtiyan hui hain. Kabhi-kabhi main bahut zyada overthink karne lagta hoon, possessive aur overprotective ho jaata hoon, aur apni feelings samjhate-samjhate aisi baatein keh deta hoon jo tumhe hurt karti hain. Main apni galtiyon ke liye koi bahana nahi banana chahta. Mujhe sach mein afsos hai ki meri wajah se tumhe takleef hui. 🥺❤️‍🩹
+          </p>
+
+          <p>
+            Jab tumne mujhe milne ke liye bulaya tha aur main nahi aa paaya, toh mujhe tumhari feelings ko aur achhe se samajhna chahiye tha. Main chahta tha ki hum apne career aur relationship ko saath lekar chalein, lekin shayad apni baat samjhane ki koshish mein main tumhari baat dhyaan se sunna bhool gaya. Mujhe samajhna chahiye tha ki tumhari feelings aur tumhari expectations bhi utni hi important hain. 💗
+          </p>
+
+          <p>
+            September se lekar ab tak, agar meri kisi baat, gusse ya behaviour ne tumhara dil dukhaya hai, toh uske liye main dil se maafi maangta hoon. Main beete hue waqt ko badal nahi sakta, lekin apni galtiyon ko samajhkar khud ko behtar banane ki koshish zaroor kar sakta hoon. Main seekhna chahta hoon ki gusse mein kaise rukna hai, overthinking ko kaise control karna hai aur tumhari baat ko bina kisi behas ke kaise sunna hai. ❤️‍🩹🫂
+          </p>
+
+          <p>
+            Madam Ji, tum mere liye bahut special ho. Tumhari smile, tumhari khushi aur tumhara sukoon mere liye bahut maayne rakhte hain. 👑🎀 Lekin main yeh bhi samajhta hoon ki kisi ki care karne ka matlab us par apni baat maanna zaroori banana nahi hota. Pyaar mein trust, understanding, respect aur ek-doosre ko space dena bhi utna hi zaroori hai.
+          </p>
+
+          <p>
+            Main sirf sorry bolkar sab kuch theek hone ki umeed nahi rakhna chahta. Main apne actions se behtar insaan banna chahta hoon. Main chahta hoon ki meri baaton se nahi, balki mere behaviour se tumhe meri sincerity nazar aaye. Main jaanta hoon ki trust dobara banne mein waqt lag sakta hai, aur main is baat ko samajhta hoon. 🥹🌷
+          </p>
+
+          <p>
+            Please yaar, agar kabhi tumhare dil mein mere liye maafi ki jagah ho, toh mujhe maaf kar dena. 😭❤️ Main tumhe khona nahi chahta, lekin main tum par apne saath rehne ya mujhe maaf karne ka pressure bhi nahi daalna chahta. Tumhari feelings, tumhara sukoon aur tumhara decision mere liye respect ke layak hain.
+          </p>
+
+          <p>
+            Main tumse bas itna kehna chahta hoon ki jo kuch bhi hua, uske liye mujhe dil se afsos hai. Kaash main pehle hi apni galtiyon ko samajh paata aur tumhe hurt karne se khud ko rok paata. Main apni galtiyon ki responsibility leta hoon aur khud mein sachcha badlaav laane ki koshish karunga.
+          </p>
+
+          <p>
+            Agar kabhi tum khud mujhse baat karna chaho, toh main tumhari baat calmly sununga aur tumhari feelings ko samajhne ki poori koshish karunga. Aur agar tumhe waqt aur space chahiye, toh main uski bhi respect karunga. ❤️🦋
+          </p>
+
+          <p>
+            Apna khayal rakhna, Madam Ji. Hamesha khush rehna aur apni pyari si smile banaye rakhna. 🎀🌸
+          </p>
+
+          <p>
+            Ek baar phir, meri taraf se dil se sorry. Main perfect nahi hoon, lekin apni galtiyon ko pehchaan kar behtar banna chahta hoon.
+          </p>
+
+          <p class="signature">
+            With love, care and a sincere apology,<br>
+            <strong>Tumhara pagal sa insaan ❤️🥹🫶🏻</strong><br>
+            <span>Always wishing you happiness ♡</span>
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section page-width" id="memories">
+      <div class="section-heading reveal"><span class="section-kicker">LITTLE MOMENTS, BIG MEANING</span><h2>Our little universe <span>✧</span></h2><p>Add your own photos and videos to make this space personal.</p></div>
+      <div class="gallery" id="gallery"></div>
+    </section>
+
+    <section class="section page-width" id="story">
+      <div class="section-heading reveal"><span class="section-kicker">REMEMBERING, LEARNING, GROWING</span><h2>Our story so far <span>🌷</span></h2><p>Not a perfect story—just moments, lessons and hope.</p></div>
+      <div class="timeline">
+        <article class="timeline-card reveal"><span class="timeline-number">01</span><div><small>THE GOOD MOMENTS</small><h3>Little things that mattered</h3><p>Our conversations, laughs and small memories mean a lot to me. I’m grateful for the good moments we shared.</p></div></article>
+        <article class="timeline-card reveal"><span class="timeline-number">02</span><div><small>WHAT I’M LEARNING</small><h3>Listening matters</h3><p>Different feelings can exist at the same time. I want to listen without turning every disagreement into an argument.</p></div></article>
+        <article class="timeline-card reveal"><span class="timeline-number">03</span><div><small>WHAT I HOPE FOR</small><h3>Care with respect</h3><p>I hope for understanding and growth, if that is something we both want. Your comfort and choice matter.</p></div></article>
+      </div>
+    </section>
+
+    <section class="section page-width" id="promises">
+      <div class="section-heading reveal"><span class="section-kicker">A PROMISE IS SHOWN IN ACTION</span><h2>Things I want to practise <span>♡</span></h2><p>Small, real changes matter more than grand words.</p></div>
+      <div class="promise-grid">
+        <article class="promise-card reveal"><span>🫶</span><h3>Listen first</h3><p>Try to understand before I explain my own point.</p></article>
+        <article class="promise-card reveal"><span>🌱</span><h3>Grow with care</h3><p>Respect each other’s goals, time and boundaries.</p></article>
+        <article class="promise-card reveal"><span>🕊️</span><h3>Give space</h3><p>Respect your choices without repeated messages or pressure.</p></article>
+        <article class="promise-card reveal"><span>💬</span><h3>Speak kindly</h3><p>Pause when upset and choose words more carefully.</p></article>
+      </div>
+    </section>
+
+    <section class="closing page-width reveal">
+      <div class="closing-decoration">✧</div><div class="closing-heart">♡</div>
+      <span class="section-kicker">ONE LAST THING</span><h2>Your peace matters, Madam Ji.</h2>
+      <p>Main chahta hoon ki hum ek doosre ko samjhein, lekin main tum par koi pressure nahi daalunga. Chahe tumhe time chahiye ya space, tumhari choice ki respect honi chahiye.</p>
+      <button class="button button-primary" id="surpriseBtn" type="button">Open a little reminder <span>✧</span></button>
+      <p class="closing-note">No reply needed. Take care of yourself. 🤍</p>
+    </section>
+  </main>
+
+  <footer>Made with care, honesty & hope <span>♡</span></footer>
+  <dialog class="surprise-dialog" id="surprise"><button class="dialog-close" id="closeSurprise" aria-label="Close">×</button><div class="dialog-flower">🌷</div><h2>You deserve kindness.</h2><p>I hope life brings you peace, warmth and reasons to smile. Take care, always. ♡</p><button class="button button-secondary" id="dialogOkay">Thank you ♡</button></dialog>
+  <audio id="backgroundMusic" loop preload="auto">
+    <source src="assets/audio/song.mpeg" type="audio/mpeg">
+  </audio>
+  <script src="script.js"></script>
+</body>
+</html>
