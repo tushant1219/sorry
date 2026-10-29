@@ -327,6 +327,7 @@ if (dialog && surpriseBtn) {
 }
 
 
+
 /* ---------- BACKGROUND MUSIC + SOUND BUTTON ---------- */
 
 const backgroundMusic = document.querySelector("#backgroundMusic");
@@ -342,12 +343,26 @@ if (backgroundMusic && soundBtn) {
       : '♫ <span>Sound off</span>';
   }
 
-  // Try to play music when the website opens.
-  backgroundMusic.play()
-    .then(() => updateSoundButton(true))
-    .catch(() => updateSoundButton(false));
+  // Try autoplay as soon as the page loads.
+  async function startBackgroundMusic() {
+    try {
+      await backgroundMusic.play();
+      updateSoundButton(true);
+    } catch (error) {
+      updateSoundButton(false);
+      console.log("Browser requires a user interaction to play music.");
+    }
+  }
 
-  // Toggle background music ON/OFF.
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", startBackgroundMusic, {
+      once: true
+    });
+  } else {
+    startBackgroundMusic();
+  }
+
+  // Toggle music ON/OFF.
   soundBtn.addEventListener("click", async () => {
     if (backgroundMusic.paused) {
       try {
@@ -363,6 +378,7 @@ if (backgroundMusic && soundBtn) {
     }
   });
 }
+
 
 /* ---------- REVEAL ANIMATIONS ---------- */
 
