@@ -507,5 +507,48 @@ if ("IntersectionObserver" in window) {
       });
     }, { passive: true });
   }
+   
+   /* ---------- MUSIC PROMPT ---------- */
+   
+   const musicPrompt = document.getElementById("musicPrompt");
+   const musicElement = document.getElementById("backgroundMusic");
+   const musicToggle = document.getElementById("soundBtn");
+   
+   if (musicPrompt && musicElement) {
+     async function startMusicFromPrompt() {
+       try {
+         await musicElement.play();
+   
+         if (musicToggle) {
+           musicToggle.innerHTML = '♫ <span>Sound on</span>';
+           musicToggle.setAttribute("aria-pressed", "true");
+         }
+   
+         musicPrompt.classList.add("is-hidden");
+       } catch (error) {
+         musicPrompt.textContent = "♡ Tap again to play music ♡";
+       }
+     }
+   
+     musicPrompt.addEventListener("click", startMusicFromPrompt);
+   
+     musicPrompt.addEventListener("keydown", (event) => {
+       if (event.key === "Enter" || event.key === " ") {
+         event.preventDefault();
+         startMusicFromPrompt();
+       }
+     });
+   
+     // Hide the prompt if music is already playing.
+     musicElement.addEventListener("playing", () => {
+       musicPrompt.classList.add("is-hidden");
+     });
+   
+     // Show it again if the visitor pauses the music.
+     musicElement.addEventListener("pause", () => {
+       musicPrompt.classList.remove("is-hidden");
+     });
+   }
+
 })();
 
