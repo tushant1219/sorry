@@ -344,15 +344,13 @@ if (backgroundMusic && soundBtn) {
   }
 
   // Try autoplay as soon as the page loads.
-  async function startBackgroundMusic() {
-    try {
-      await backgroundMusic.play();
-      updateSoundButton(true);
-    } catch (error) {
-      updateSoundButton(false);
-      console.log("Browser requires a user interaction to play music.");
-    }
-  }
+  
+async function startBackgroundMusic() {
+  backgroundMusic.play()
+    .then(() => updateSoundButton(true))
+    .catch(() => updateSoundButton(false));
+}
+
 
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", startBackgroundMusic, {
