@@ -465,23 +465,23 @@ if ("IntersectionObserver" in window) {
 
   // Tap the prompt to retry playback.
   
-if (musicPrompt) {
-  musicPrompt.addEventListener("click", async () => {
-    console.log("Music prompt tapped");
-
-    try {
-      music.muted = false;
-      music.currentTime = 0;
-      await music.play();
-
-      updateButton(true);
-      showPrompt(false);
-    } catch (error) {
-      console.error("Mobile music error:", error.name, error.message);
-      updateButton(false);
-      showPrompt(true);
-    }
-  });
+   if (musicPrompt) {
+     musicPrompt.addEventListener("click", async () => {
+       console.log("Music prompt tapped");
+   
+       try {
+         music.muted = false;
+         music.currentTime = 0;
+         await music.play();
+   
+         updateButton(true);
+         showPrompt(false);
+       } catch (error) {
+         console.error("Mobile music error:", error.name, error.message);
+         updateButton(false);
+         showPrompt(true);
+       }
+     });
 }
 
 })();
