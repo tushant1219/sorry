@@ -345,11 +345,11 @@ if (backgroundMusic && soundBtn) {
 
   // Try autoplay as soon as the page loads.
   
-async function startBackgroundMusic() {
-  backgroundMusic.play()
-    .then(() => updateSoundButton(true))
-    .catch(() => updateSoundButton(false));
-}
+   async function startBackgroundMusic() {
+     backgroundMusic.play()
+       .then(() => updateSoundButton(true))
+       .catch(() => updateSoundButton(false));
+   }
 
 
   if (document.readyState === "loading") {
