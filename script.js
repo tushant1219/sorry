@@ -464,24 +464,26 @@ if ("IntersectionObserver" in window) {
   }
 
   // Tap the prompt to retry playback.
-  if (musicPrompt) {
-    musicPrompt.addEventListener("click", startMusic);
-  }
+  
+if (musicPrompt) {
+  musicPrompt.addEventListener("click", async () => {
+    console.log("Music prompt tapped");
 
-  music.addEventListener("playing", () => {
-    updateButton(true);
-    showPrompt(false);
-  });
+    try {
+      music.muted = false;
+      music.currentTime = 0;
+      await music.play();
 
-  music.addEventListener("pause", () => {
-    updateButton(false);
+      updateButton(true);
+      showPrompt(false);
+    } catch (error) {
+      console.error("Mobile music error:", error.name, error.message);
+      updateButton(false);
+      showPrompt(true);
+    }
   });
+}
 
-  music.addEventListener("error", () => {
-    console.error("Audio file failed to load:", music.currentSrc, music.error);
-    updateButton(false);
-    showPrompt(true);
-  });
 })();
 
 
