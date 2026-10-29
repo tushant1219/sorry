@@ -28,7 +28,7 @@ const memoryItems = [
   },
   {
     type: "video",
-    src: "assets/videos/video1.mp4",
+    src: "assets/videos/Video1.mp4",
     title: "Our little video",
     caption: "A moment worth keeping. 🎞️",
     emoji: "🎬"
