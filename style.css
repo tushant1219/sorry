@@ -2074,31 +2074,61 @@ footer span {
 }
 
 
-/* Cute music prompt */
+
+/* ---------- FLOATING MUSIC PROMPT ---------- */
 .music-prompt {
   position: fixed;
-  bottom: 22px;
-  left: 50%;
-  transform: translateX(-50%);
+  right: 18px;
+  bottom: 18px;
+  left: auto;
+  top: auto;
+  transform: none;
   z-index: 9999;
-  padding: 12px 20px;
-  border: 1px solid rgba(224, 151, 190, 0.65);
-  border-radius: 30px;
-  background: rgba(255, 248, 253, 0.94);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  max-width: calc(100vw - 36px);
+  box-sizing: border-box;
+  padding: 12px 18px;
+
+  border: 1px solid #f3c9df;
+  border-radius: 999px;
+  background: rgba(255, 248, 253, 0.96);
   color: #a64f83;
+  font-family: inherit;
   font-size: 13px;
+  line-height: 1.4;
   text-align: center;
-  box-shadow: 0 6px 24px rgba(160, 94, 145, 0.15);
+  white-space: normal;
+  overflow-wrap: anywhere;
+
+  box-shadow: 0 6px 24px rgba(160, 94, 145, 0.18);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   cursor: pointer;
   animation: musicPromptFloat 2s ease-in-out infinite;
-  backdrop-filter: blur(10px);
 }
 
 .music-prompt.is-hidden {
-  display: none;
+  display: none !important;
 }
 
 @keyframes musicPromptFloat {
-  0%, 100% { transform: translate(-50%, 0); }
-  50% { transform: translate(-50%, -5px); }
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@media (max-width: 480px) {
+  .music-prompt {
+    right: 12px;
+    bottom: 12px;
+    max-width: calc(100vw - 24px);
+    padding: 10px 14px;
+    font-size: 12px;
+  }
 }
